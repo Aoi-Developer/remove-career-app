@@ -20,7 +20,7 @@ sudo apt update && sudo apt install adb -y
 
 Android端末でUSBデバッグを有効にしパソコンへ接続します。
 
-appremove.shを実行するとスクリプトが実行されます。
+PCのターミナルでappremove.shを実行するとスクリプトが実行されます。
 
 例:) bash appremove.sh
 
