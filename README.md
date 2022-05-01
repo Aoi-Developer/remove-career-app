@@ -24,4 +24,4 @@ appremove.shを実行するとスクリプトが実行されます。
 
 表示されたアプリ一覧に問題がなければ「Y」を入力します。
 
-![test](Docs/remove.png)
+![test](Docs/removeapp.png)
