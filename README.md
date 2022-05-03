@@ -5,11 +5,7 @@
 
 # 依存関係
 
-adbが必要です。
-
-Debian系OSの場合下記コマンドで依存関係を解決できます。
-
-sudo apt update && sudo apt install adb -y
+自動で解決されるように作ったので気にしなくていいよw
 
 # 実行する前に
 
