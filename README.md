@@ -23,3 +23,7 @@ PCのターミナルでappremove.shを実行するとスクリプトが実行さ
 表示されたアプリ一覧に問題がなければ「Y」を入力します。
 
 ![test](Docs/removeapp.png)
+
+以下コマンドを使用すればgitからcloneすることなく実行することも可能です
+
+例:) bash <(curl -s https://raw.githubusercontent.com/Aoi-Developer/remove-career-app/main/appremove.sh)
