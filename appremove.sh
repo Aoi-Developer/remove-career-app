@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if type "adb" > /dev/null 2>&1; then
+  adb kill-server > /dev/null 2>&1
   adb shell exit > /dev/null 2>&1
   if [ $? -eq 0 ]; then
     adb shell pm list package >> pkg.txt
@@ -31,6 +32,7 @@ if type "adb" > /dev/null 2>&1; then
 else
   echo "adbコマンドが存在しません。"
   echo "コマンドを自動でインストールします"
+  sudo apt update
   sudo apt install adb -y
   if [ $? -eq 0 ]; then
     adb shell exit > /dev/null 2>&1
