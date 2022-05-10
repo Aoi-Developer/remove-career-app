@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd
+cd ~/
 
 md5sum adb 2>&1 | awk '{ print $1 }' > md5.txt
 
