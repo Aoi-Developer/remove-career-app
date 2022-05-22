@@ -24,7 +24,7 @@ PCのターミナルでappremove.shを実行するとスクリプトが実行さ
 
 表示されたアプリ一覧に問題がなければ「Y」を入力します。
 
-![test](Docs/removeapp.png)
+![test](Docs/macremove.png)
 
 以下コマンドを使用すればgitからcloneすることなく実行することも可能です
 
