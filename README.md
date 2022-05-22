@@ -5,8 +5,8 @@
 
 # 対応OS
 
-MacOSまたはDebian派生のOS
-(Arm版MacOSは未検証です。使えるかわからない)
+MacOSまたはDebian派生のOS. 
+(Arm版MacOSは未検証です。使えるかわからない). 
 依存関係は自動で解決されます
 
 # 実行する前に
