@@ -10,7 +10,7 @@ if [ $? -ne 0 ] ; then
     export PATH="$PATH:`pwd`/Applications/platform-tools"
     touch ~/.zshrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .zshrc
     touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
-    source ~/.zshrc
+    #source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     sudo apt update && sudo apt install adb fastboot
     if [ $? -eq 0 ]; then
