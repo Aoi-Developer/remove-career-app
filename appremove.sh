@@ -3,10 +3,10 @@ which adb >/dev/null 2>&1
 if [ $? -ne 0 ] ; then
   if [ "$(uname)" == 'Darwin' ]; then
     cd ~/
-    curl -OL https://dl.google.com/android/repository/platform-tools_r33.0.1-darwin.zip
-    unzip platform-tools_r33.0.1-darwin.zip
-    mv platform-tools/ ~/Applications/
-    rm platform-tools_r33.0.1-darwin.zip
+    curl -L --output "$TMPDIR/platform-tools.zip" "https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
+    unzip "$TMPDIR/platform-tools.zip"
+    mv "${TMPDIR}platform-tools/" "${HOME}/Applications/"
+    rm -f "$TMPDIR/platform-tools.zip"
     export PATH="$PATH:`pwd`/Applications/platform-tools"
     touch ~/.zshrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .zshrc
     touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
