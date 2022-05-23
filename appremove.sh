@@ -12,7 +12,7 @@ if [ $? -ne 0 ] ; then
     touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
     source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    sudo apt update && sudo apt install adb fastboot
+    sudo apt update && sudo apt install adb fastboot -y
     if [ $? -eq 0 ]; then
       echo "成功しました"
     else
