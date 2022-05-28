@@ -1,6 +1,7 @@
 #!/bin/sh
-which adb >/dev/null 2>&1
-if [ $? -ne 0 ] ; then
+
+# adb install
+if ! which adb >/dev/null 2>&1 ; then
   if [ "$(uname)" = 'Darwin' ]; then
     cd "${HOME}"
     curl -L --output "$TMPDIR/platform-tools.zip" "https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
