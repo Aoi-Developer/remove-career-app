@@ -9,8 +9,8 @@ if ! which adb >/dev/null 2>&1 ; then
     mv "${TMPDIR}/platform-tools/" "${HOME}/Applications/"
     rm -f "$TMPDIR/platform-tools.zip"
     export PATH="$PATH:$(pwd)/Applications/platform-tools"
-    touch ~/.zshrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .zshrc
-    touch ~/.bashrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .bashrc
+    touch ~/.zshrc && echo export PATH="$PATH" >> .zshrc
+    touch ~/.bashrc && echo export PATH="$PATH" >> .bashrc
     #source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
     sudo apt update && sudo apt install adb fastboot -y
