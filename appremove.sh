@@ -7,9 +7,9 @@ if [ $? -ne 0 ] ; then
     unzip "$TMPDIR/platform-tools.zip"
     mv "${TMPDIR}platform-tools/" "${HOME}/Applications/"
     rm -f "$TMPDIR/platform-tools.zip"
-    export PATH="$PATH:`pwd`/Applications/platform-tools"
-    touch ~/.zshrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .zshrc
-    touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
+    export PATH="$PATH:$(pwd)/Applications/platform-tools"
+    touch ~/.zshrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .zshrc
+    touch ~/.bashrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .bashrc
     #source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     sudo apt update && sudo apt install adb fastboot -y
