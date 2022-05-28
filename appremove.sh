@@ -19,11 +19,11 @@ if ! which adb >/dev/null 2>&1 ; then
     if [ $? -eq 0 ]; then
       echo "成功しました"
     else
-      echo "adbのインストールに失敗しました。"
+      echo "adbのインストールに失敗しました。" >&2
       exit 1
     fi
   else
-    echo "このOSは非対応です"
+    echo "このOSは非対応です" >&2
     exit 1
   fi
 fi
@@ -46,6 +46,6 @@ if adb shell exit > /dev/null 2>&1; then
       ;;
     esac
 else
-  echo "USBデバッグが有効なデバイスが見つかりません。"
-  echo "Android端末が正しく接続されているか確認してください"
+  echo "USBデバッグが有効なデバイスが見つかりません。" >&2
+  echo "Android端末が正しく接続されているか確認してください" >&2
 fi
