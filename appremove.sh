@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 # adb install
 if ! which adb >/dev/null 2>&1 ; then
   if [ "$(uname)" = 'Darwin' ]; then
