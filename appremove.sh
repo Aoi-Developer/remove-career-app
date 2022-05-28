@@ -30,7 +30,7 @@ adb shell exit > /dev/null 2>&1
 if [ $? -eq 0 ]; then
   adb shell pm list package | sed -e "s/package://g" | grep -e 'docomo' -e 'ntt' -e 'auone' -e 'rakuten' -e 'kddi' -e 'softbank' | sed "s@^@adb shell pm uninstall --user 0 @g" > test.sh
   cat test.sh | sed -e "s@adb shell pm uninstall --user 0@@g"
-  echo `cat test.sh | wc -l` "個のアプリが消去されます [Y/n]: "
+  echo "$(wc -l < test.sh)個のアプリが消去されます [Y/n]: "
   read ANS
   case $ANS in
     "" | [Yy]* )
