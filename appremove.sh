@@ -10,7 +10,7 @@ if ! which adb >/dev/null 2>&1 ; then
     unzip "$TMPDIR/platform-tools.zip"
     mv "${TMPDIR}/platform-tools/" "${HOME}/Applications/"
     rm -f "$TMPDIR/platform-tools.zip"
-    export PATH="$PATH:$(pwd)/Applications/platform-tools"
+    export PATH="$PATH:${HOME}/Applications/platform-tools"
     touch ~/.zshrc && echo export PATH="$PATH" >> .zshrc
     touch ~/.bashrc && echo export PATH="$PATH" >> .bashrc
     #source ~/.zshrc
