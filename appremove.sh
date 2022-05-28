@@ -1,7 +1,7 @@
 #!/bin/sh
 which adb >/dev/null 2>&1
 if [ $? -ne 0 ] ; then
-  if [ "$(uname)" == 'Darwin' ]; then
+  if [ "$(uname)" = 'Darwin' ]; then
     cd "${HOME}"
     curl -L --output "$TMPDIR/platform-tools.zip" "https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
     unzip "$TMPDIR/platform-tools.zip"
@@ -11,7 +11,7 @@ if [ $? -ne 0 ] ; then
     touch ~/.zshrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .zshrc
     touch ~/.bashrc && echo export PATH="$PATH:$(pwd)/Applications/platform-tools" >> .bashrc
     #source ~/.zshrc
-  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
     sudo apt update && sudo apt install adb fastboot -y
     if [ $? -eq 0 ]; then
       echo "成功しました"
