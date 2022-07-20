@@ -26,12 +26,10 @@ Android端末でUSBデバッグを有効にしパソコンへ接続します。
 PCのターミナルでappremove.shを実行するとスクリプトが実行されます。  
 (Windowsではexeをダブルクリック)
 
-例:) bash appremove.sh
+例:) bash <(curl -s https://raw.githubusercontent.com/Aoi-Developer/remove-career-app/main/appremove.sh)
 
 表示されたアプリ一覧に問題がなければ「Y」と「Enter」を入力します。
 
 ![test](Docs/Windows.png)
 
 以下コマンドを使用すればgitからcloneすることなく実行することも可能です
-
-例:) bash <(curl -s https://raw.githubusercontent.com/Aoi-Developer/remove-career-app/main/appremove.sh)
