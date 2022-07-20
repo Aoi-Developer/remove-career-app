@@ -7,7 +7,9 @@
 
 MacOSまたはDebian派生のOS. 
 (Arm版MacOSは未検証です。使えるかわからない). 
-依存関係は自動で解決されます
+依存関係は自動で解決されます  
+Windows版はここからダウンロードしてください  
+https://github.com/Aoi-Developer/remove-career-app/releases/tag/windows
 
 # 実行する前に
 
@@ -18,7 +20,8 @@ MacOSまたはDebian派生のOS.
 
 Android端末でUSBデバッグを有効にしパソコンへ接続します。
 
-PCのターミナルでappremove.shを実行するとスクリプトが実行されます。
+PCのターミナルでappremove.shを実行するとスクリプトが実行されます。  
+(Windowsではexeをダブルクリック)
 
 例:) bash appremove.sh
 
