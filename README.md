@@ -11,7 +11,7 @@ MacOSまたはDebian派生のOS.
 
 Windowsを使用する方は予めdriverとplatform-toolsを  
 導入してください。  
-Windows版はここからダウンロードしてください  
+Windows版はここからダウンロード出来ます  
 https://github.com/Aoi-Developer/remove-career-app/releases/tag/windows
 
 # 実行する前に
