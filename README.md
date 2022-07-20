@@ -28,7 +28,7 @@ PCのターミナルでappremove.shを実行するとスクリプトが実行さ
 
 例:) bash appremove.sh
 
-表示されたアプリ一覧に問題がなければ「Y」を入力します。
+表示されたアプリ一覧に問題がなければ「Y」と「Enter」を入力します。
 
 ![test](Docs/Windows.png)
 
