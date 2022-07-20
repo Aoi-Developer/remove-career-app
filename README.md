@@ -8,6 +8,9 @@
 MacOSまたはDebian派生のOS. 
 (Arm版MacOSは未検証です。使えるかわからない). 
 依存関係は自動で解決されます  
+
+Windowsを使用する方は予めdriverとplatform-toolsを  
+導入してください。  
 Windows版はここからダウンロードしてください  
 https://github.com/Aoi-Developer/remove-career-app/releases/tag/windows
 
