@@ -11,7 +11,7 @@ kill_res = subprocess.run(["adb","kill-server"],stdout=subprocess.PIPE)
 shell_res = subprocess.run(["adb","kill","exit"],stdout=subprocess.PIPE)
 if(kill_res.returncode != 0 or shell_res.returncode != 0):
     print("デバイスが接続されていない可能性があります")
-    subprocess.run(["pause"],stdout=subprocess.PIPE)
+    subprocess.check_call(r"pause",shell=True)
     sys.exit()
 
 subprocess.run(["adb","shell","pm","list","package",">","list.txt"],stdout=subprocess.PIPE)
@@ -24,7 +24,7 @@ if not res.returncode == 0:
 res = subprocess.run(["del","list.txt"],stdout=subprocess.PIPE)
 if not res.returncode == 0:
     print("削除対象のアプリがありません")
-    subprocess.run(["pause"],stdout=subprocess.PIPE)
+    subprocess.check_call(r"pause",shell=True)
     sys.exit()
 
 if __name__ == '__main__':
@@ -44,7 +44,7 @@ if not res.returncode == 0:
     res = subprocess.run(["del","listout.txt"],stdout=subprocess.PIPE)
     if not res.returncode == 0:
         print("パーミッションの設定がなんかおっかしぃぞ")
-        subprocess.run(["pause"],stdout=subprocess.PIPE)
+        subprocess.check_call(r"pause",shell=True)
         sys.exit()
     subprocess.run(["pause"],stdout=subprocess.PIPE)
     sys.exit()
@@ -52,7 +52,7 @@ if not res.returncode == 0:
 res = subprocess.run(["del","listout.txt"],stdout=subprocess.PIPE)
 if not res.returncode == 0:
     print("パーミッションの設定がなんかおっかしぃぞ")
-    subprocess.run(["pause"],stdout=subprocess.PIPE)
+    subprocess.check_call(r"pause",shell=True)
     sys.exit()
 
 subprocess.run(["cls"],stdout=subprocess.PIPE)
@@ -83,10 +83,10 @@ if __name__ == '__main__':
         res = subprocess.run(["del","dellist.bat"],stdout=subprocess.PIPE)
         if not res.returncode == 0:
             print("パーミッションの設定がなんかおっかしぃぞ")
-            subprocess.run(["pause"],stdout=subprocess.PIPE)
+            subprocess.check_call(r"pause",shell=True)
             sys.exit()
         print('処理を中止しました')
-        subprocess.run(["pause"],stdout=subprocess.PIPE)
+        subprocess.check_call(r"pause",shell=True)
         sys.exit()
 
 res = subprocess.run(["dellist.bat"],stdout=subprocess.PIPE)
@@ -96,9 +96,9 @@ if not res.returncode == 0:
 res = subprocess.run(["del","dellist.bat"],stdout=subprocess.PIPE)
 if not res.returncode == 0:
     print("パーミッションの設定がなんかおっかしぃぞ")
-    subprocess.run(["pause"],stdout=subprocess.PIPE)
+    subprocess.check_call(r"pause",shell=True)
     sys.exit()
 
 print('アプリの削除が完了しました')
-subprocess.run(["pause"],stdout=subprocess.PIPE)
+subprocess.check_call(r"pause",shell=True)
 sys.exit()
