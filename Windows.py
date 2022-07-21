@@ -8,7 +8,7 @@ print("  Dev:aoi_satou https://twitter.com/Chromium_Linux")
 print("-----------------------------------------------------")
 
 kill_res = subprocess.run(["adb","kill-server"],stdout=subprocess.PIPE)
-shell_res = subprocess.run(["adb","kill","exit"],stdout=subprocess.PIPE)
+shell_res = subprocess.run(["adb","shell","exit"],stdout=subprocess.PIPE)
 if(kill_res.returncode != 0 or shell_res.returncode != 0):
     print("デバイスが接続されていない可能性があります")
     subprocess.check_call(r"pause",shell=True)
