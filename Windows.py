@@ -7,30 +7,29 @@ print("           remove-career-app for Windows")
 print("  Dev:aoi_satou https://twitter.com/Chromium_Linux")
 print("-----------------------------------------------------")
 
-try:
-    subprocess.check_call("adb kill-server")
-    subprocess.check_call("adb shell exit")
-except:
+kill_res = subprocess.run(["adb","kill-server"],stdout=subprocess.PIPE)
+shell_res = subprocess.run(["adb","kill","exit"],stdout=subprocess.PIPE)
+if(kill_res.returncode != 0 or shell_res.returncode != 0):
     print("デバイスが接続されていない可能性があります")
-    subprocess.check_call(r"pause",shell=True)
+    subprocess.run(["pause"],stdout=subprocess.PIPE)
     sys.exit()
 
-subprocess.check_call(r"adb shell pm list package > list.txt ",shell=True)
-try:
-    subprocess.check_call(r'findstr "rakuten kddi auone ntt softbank docomo" list.txt >> listout.txt ',shell=True)
-except:
+subprocess.run(["adb","shell","pm","list","package",">","list.txt"],stdout=subprocess.PIPE)
+
+career = "\"rakuten kddi auone ntt softbank docomo\""
+res = subprocess.run(["findstr",career,"list.txt",">>","listout.txt"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
     print("例外キャリアをフィルタリングしました")
-try:
-    subprocess.check_call(r"del list.txt",shell=True)
-except:
+
+res = subprocess.run(["del","list.txt"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
     print("削除対象のアプリがありません")
-    subprocess.check_call(r"pause",shell=True)
+    subprocess.run(["pause"],stdout=subprocess.PIPE)
     sys.exit()
 
 if __name__ == '__main__':
     before_str=r'package:*'
     after_str=r""
-
     f = open("listout.txt",'r')
     body = f.read()
     f.close()
@@ -38,31 +37,35 @@ if __name__ == '__main__':
     print (re.sub(before_str, after_str, body, flags=re.DOTALL))
     f.write (re.sub(before_str, after_str, body, flags=re.DOTALL))
     f.close()
-try:
-    subprocess.check_call (r'for /f "delims=" %l in (listout.txt) do @echo adb shell pm uninstall --user 0  %l >> dellist.bat ',shell=True)
-except:
+    
+res = subprocess.run(["for","/f","\"delims=\"","%l","in","(listout.txt)","do","@echo","adb","shell","pm","uninstall","--user","0","%l",">>","dellist.bat"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
     print("削除対象のアプリが見つかりません")
-    subprocess.check_call(r"del listout.txt",shell=True)
-    subprocess.check_call(r"pause",shell=True)
+    res = subprocess.run(["del","listout.txt"],stdout=subprocess.PIPE)
+    if not res.returncode == 0:
+        print("パーミッションの設定がなんかおっかしぃぞ")
+        subprocess.run(["pause"],stdout=subprocess.PIPE)
+        sys.exit()
+    subprocess.run(["pause"],stdout=subprocess.PIPE)
     sys.exit()
-try:
-    subprocess.check_call(r"del listout.txt",shell=True)
-except:
+
+res = subprocess.run(["del","listout.txt"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
     print("パーミッションの設定がなんかおっかしぃぞ")
-    subprocess.check_call(r"pause",shell=True)
+    subprocess.run(["pause"],stdout=subprocess.PIPE)
     sys.exit()
-subprocess.check_call(r"cls",shell=True)
+
+subprocess.run(["cls"],stdout=subprocess.PIPE)
 
 if __name__ == '__main__':
     before_str=r'adb shell pm uninstall --user 0*'
     after_str=r""
-
     f = open("dellist.bat",'r')
     body = f.read()
     print (re.sub(before_str, after_str, body, flags=re.DOTALL))
     f.close()
 
-subprocess.check_call(r'FIND /v /c "" dellist.bat',shell=True)
+subprocess.run(["FIND","/v","/c"," \"\"","dellist.bat"],stdout=subprocess.PIPE)
 
 def confirm():
     dic={'y':True,'yes':True,'n':False,'no':False}
@@ -77,15 +80,25 @@ if __name__ == '__main__':
     if confirm():
         print('削除を実行します')
     else:
-        subprocess.check_call(r"del dellist.bat",shell=True)
+        res = subprocess.run(["del","dellist.bat"],stdout=subprocess.PIPE)
+        if not res.returncode == 0:
+            print("パーミッションの設定がなんかおっかしぃぞ")
+            subprocess.run(["pause"],stdout=subprocess.PIPE)
+            sys.exit()
         print('処理を中止しました')
-        subprocess.check_call(r"pause",shell=True)
+        subprocess.run(["pause"],stdout=subprocess.PIPE)
         sys.exit()
 
-try:
-    subprocess.check_call(r"dellist.bat",shell=True)
-except:
-    print("")
-subprocess.check_call(r"del dellist.bat",shell=True)
+res = subprocess.run(["dellist.bat"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
+    pass
+
+res = subprocess.run(["del","dellist.bat"],stdout=subprocess.PIPE)
+if not res.returncode == 0:
+    print("パーミッションの設定がなんかおっかしぃぞ")
+    subprocess.run(["pause"],stdout=subprocess.PIPE)
+    sys.exit()
+
 print('アプリの削除が完了しました')
-subprocess.check_call(r"pause",shell=True)
+subprocess.run(["pause"],stdout=subprocess.PIPE)
+sys.exit()
