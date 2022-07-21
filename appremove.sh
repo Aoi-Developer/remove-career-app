@@ -17,7 +17,7 @@ if [ $? -ne 0 ] ; then
     elif command -v apt &> /dev/null ; then
       sudo apt update && sudo apt install adb fastboot -y
     elif command -v xbps-install &> /dev/null ; then
-      sudo xbps-install -S -y xbps && sudo xbps-install -Su -y android-tools
+      sudo xbps-install -S -y xbps && sudo xbps-install -S -y android-tools
     elif command -v yum &> /dev/null ; then
       sudo yum makecache && sudo yum -y install android-tools
     elif command -v dnf &> /dev/null ; then
