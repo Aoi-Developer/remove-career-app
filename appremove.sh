@@ -16,6 +16,8 @@ if [ $? -ne 0 ] ; then
       sudo pacman -Sy --noconfirm android-tools
     elif command -v apt &> /dev/null ; then
       sudo apt update && sudo apt install adb fastboot -y
+    elif command -v xbps-install &> /dev/null ; then
+      sudo xbps-install -Su android-tools
     fi
     if [ $? -eq 0 ]; then
       echo "成功しました"
