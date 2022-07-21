@@ -21,9 +21,14 @@ res = subprocess.run(["findstr",career,"list.txt",">>","listout.txt"],stdout=sub
 if not res.returncode == 0:
     print("例外キャリアをフィルタリングしました")
 
-res = subprocess.run(["del","list.txt"],stdout=subprocess.PIPE)
-if not res.returncode == 0:
-    print("削除対象のアプリがありません")
+try: # ？？？
+    res = subprocess.run(["del","list.txt"],stdout=subprocess.PIPE)
+    if not res.returncode == 0:
+        print("削除対象のアプリがありません")
+        subprocess.check_call(r"pause",shell=True)
+        sys.exit()
+except:
+    print("削除対象のアプリがありません\nファイルが見つからないか削除できません")
     subprocess.check_call(r"pause",shell=True)
     sys.exit()
 
