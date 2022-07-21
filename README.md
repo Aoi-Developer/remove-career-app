@@ -29,6 +29,6 @@ PCのターミナルでappremove.shを実行するとスクリプトが実行さ
 例:) bash <(curl -s https://raw.githubusercontent.com/Aoi-Developer/remove-career-app/main/appremove.sh)
 
 表示されたアプリ一覧に問題がなければ「Y」と「Enter」を入力します。  
-Windows版は分析に最大30秒ほど時間がかかります
+(Windows版は分析に最大30秒ほど時間がかかります)  
 
 ![test](Docs/Windows.png)
