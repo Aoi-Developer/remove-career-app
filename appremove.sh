@@ -12,7 +12,17 @@ if [ $? -ne 0 ] ; then
     touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
     source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    sudo apt update && sudo apt install adb fastboot -y
+    if command -v pacman &> /dev/null ; then
+      sudo pacman -Sy --noconfirm android-tools
+    elif command -v apt &> /dev/null ; then
+      sudo apt update && sudo apt install adb fastboot -y
+    elif command -v xbps-install &> /dev/null ; then
+      sudo xbps-install -S -y xbps && sudo xbps-install -S -y android-tools
+    elif command -v yum &> /dev/null ; then
+      sudo yum makecache && sudo yum -y install android-tools
+    elif command -v dnf &> /dev/null ; then
+      sudo dnf makecache && sudo dnf -y install android-tools
+    fi
     if [ $? -eq 0 ]; then
       echo "成功しました"
     else
