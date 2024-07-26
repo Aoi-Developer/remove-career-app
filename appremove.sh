@@ -12,7 +12,23 @@ if [ $? -ne 0 ] ; then
     touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
     source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    sudo apt update && sudo apt install adb fastboot -y
+    source /etc/os-release
+    if [ $ID_LIKE == "debian" ]; then
+      if [ $(whoami) = "root" ]; then
+        apt update && apt install adb fastboot -y
+      else
+        sudo apt update && sudo apt install adb fastboot -y
+      fi
+    elif [ $ID_LIKE == "arch" ]; then
+      if [ $(whoami) = "root" ]; then
+        pacman -Sy && pacman -S --noconfirm --needed android-tools
+      else
+        sudo pacman -Sy && sudo pacman -S --noconfirm --needed android-tools
+      fi
+    else
+      echo "このOSは非対応です"
+      exit 1
+    fi
     if [ $? -eq 0 ]; then
       echo "成功しました"
     else
