@@ -3,13 +3,13 @@ which adb >/dev/null 2>&1
 if [ $? -ne 0 ] ; then
   if [ "$(uname)" == 'Darwin' ]; then
     cd ~/
-    curl -OL https://dl.google.com/android/repository/platform-tools_r33.0.1-darwin.zip
-    unzip platform-tools_r33.0.1-darwin.zip
+    curl -OL https://dl.google.com/android/repository/platform-tools-latest-darwin.zip
+    unzip platform-tools-latest-darwin.zip
     mv platform-tools/ ~/Applications/
-    rm platform-tools_r33.0.1-darwin.zip
+    rm platform-tools-latest-darwin.zip
     export PATH="$PATH:`pwd`/Applications/platform-tools"
-    touch ~/.zshrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .zshrc
-    touch ~/.bashrc && echo export PATH="$PATH:`pwd`/Applications/platform-tools" >> .bashrc
+    touch ~/.zshrc && echo export PATH="\$PATH:`pwd`/Applications/platform-tools" >> .zshrc
+    touch ~/.bashrc && echo export PATH="\$PATH:`pwd`/Applications/platform-tools" >> .bashrc
     source ~/.zshrc
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     source /etc/os-release
